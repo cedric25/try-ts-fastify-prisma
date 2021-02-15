@@ -1,5 +1,5 @@
 // import { FastifyRequest, RouteOptions } from 'fastify';
-import { RouteOptions } from 'fastify';
+import { RouteOptions } from 'fastify'
 
 export const fetchVegetablesRoute: RouteOptions = {
   method: 'GET',
@@ -22,8 +22,8 @@ export const fetchVegetablesRoute: RouteOptions = {
     return Promise.resolve([
       {
         name: 'Carrot',
-        color: 'orange'
-      }
+        color: 'orange',
+      },
     ])
   },
-};
+}
