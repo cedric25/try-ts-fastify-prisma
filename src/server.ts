@@ -1,10 +1,6 @@
-import fastify from 'fastify'
+import app from './app/app';
 
-const server = fastify()
-
-server.get('/ping', async (request, reply) => {
-  return 'pong\n'
-})
+const server = app()
 
 server.listen(8080, (err, address) => {
   if (err) {
