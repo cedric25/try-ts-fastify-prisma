@@ -13,7 +13,7 @@ export default (): FastifyInstance => {
   app.register(plugins)
 
   app.get('/', async () => {
-    return 'Hello from my-try 👋'
+    return 'Hello from try-ts-fastify-prisma 👋'
   })
 
   app.register(routes, { prefix: '/api' })
