@@ -9,11 +9,13 @@
   },
   "author": "Cedric Nicoloso <cedric.nicoloso@gmail.com>",
   "dependencies": {
+    "@prisma/client": "2.16.1",
     "fastify": "3.12.0",
     "fastify-plugin": "3.0.0",
     "fastify-sensible": "3.1.0"
   },
   "devDependencies": {
+    "@prisma/cli": "2.16.1",
     "@types/node": "14.14.28",
     "nodemon": "2.0.7",
     "prettier": "2.2.1",

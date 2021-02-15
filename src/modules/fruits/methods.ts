@@ -1,7 +1,7 @@
 // import { FastifyRequest, RouteOptions } from 'fastify';
 import { RouteOptions } from 'fastify'
 
-export const fetchVegetablesRoute: RouteOptions = {
+export const fetchFruitsRoute: RouteOptions = {
   method: 'GET',
   url: '/',
   // schema: {
@@ -18,11 +18,11 @@ export const fetchVegetablesRoute: RouteOptions = {
   // handler(request: FastifyRequest) {
   handler() {
     // const { db } = request;
-    // return db.vegetables.findMany();
+    // return db.fruits.findMany();
     return Promise.resolve([
       {
-        name: 'Carrot',
-        color: 'orange',
+        name: 'banana',
+        color: 'yellow',
       },
     ])
   },

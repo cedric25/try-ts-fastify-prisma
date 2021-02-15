@@ -1,5 +1,5 @@
 import { FastifyPluginCallback } from 'fastify'
-import { fetchVegetablesRoute } from './methods'
+import { fetchFruitsRoute } from './methods'
 
 // declare module 'fastify' {
 //   interface FastifyRequest {
@@ -8,7 +8,7 @@ import { fetchVegetablesRoute } from './methods'
 // }
 
 const plugin: FastifyPluginCallback = async instance => {
-  instance.route(fetchVegetablesRoute)
+  instance.route(fetchFruitsRoute)
 }
 
 export default plugin
