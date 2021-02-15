@@ -4,6 +4,7 @@ import fp from 'fastify-plugin'
 import sensible from 'fastify-sensible'
 // import logger from '@/app/plugins/logger';
 // import { Config } from '@/config';
+import prisma from './prisma'
 
 const plugin: FastifyPluginAsync = async instance => {
   // instance.register(helmet);
@@ -11,6 +12,7 @@ const plugin: FastifyPluginAsync = async instance => {
   instance.register(sensible)
   // instance.register(logger);
   // instance.register(georges, options);
+  instance.register(prisma)
 }
 
 export default fp(plugin)

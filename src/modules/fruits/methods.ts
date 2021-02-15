@@ -1,29 +1,19 @@
-// import { FastifyRequest, RouteOptions } from 'fastify';
-import { RouteOptions } from 'fastify'
+import { FastifyRequest, RouteOptions } from 'fastify'
+
+// export function fetchFruitsRoute(instance: FastifyInstance) {
+//   return {
+//     method: 'GET',
+//     url: '/',
+//     handler() {
+//       return instance.fruit.findMany()
+//     },
+//   }
+// }
 
 export const fetchFruitsRoute: RouteOptions = {
   method: 'GET',
   url: '/',
-  // schema: {
-  //   params: {
-  //     type: 'object',
-  //     required: ['userId'],
-  //     properties: {
-  //       userId: {
-  //         type: 'string',
-  //       },
-  //     },
-  //   },
-  // },
-  // handler(request: FastifyRequest) {
-  handler() {
-    // const { db } = request;
-    // return db.fruits.findMany();
-    return Promise.resolve([
-      {
-        name: 'banana',
-        color: 'yellow',
-      },
-    ])
+  handler(req: FastifyRequest) {
+    return req.fruitDao.findMany()
   },
 }
