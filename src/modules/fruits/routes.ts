@@ -1,6 +1,6 @@
 import { FastifyPluginCallback } from 'fastify'
 import { Prisma } from '@prisma/client'
-import { fetchFruitsRoute } from './methods'
+import { fetchFruitsRoute, createFruitRoute } from './methods'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -15,6 +15,7 @@ const plugin: FastifyPluginCallback = async instance => {
   })
 
   instance.route(fetchFruitsRoute)
+  instance.route(createFruitRoute)
 }
 
 export default plugin
