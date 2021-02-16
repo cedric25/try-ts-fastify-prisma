@@ -6,7 +6,7 @@ import prisma from './prisma'
 
 const plugin: FastifyPluginAsync = async instance => {
   instance.register(helmet)
-  instance.register(sensible)
+  instance.register(sensible, { errorHandler: false })
   instance.register(prisma)
 }
 
