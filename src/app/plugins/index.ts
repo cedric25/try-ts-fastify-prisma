@@ -8,6 +8,11 @@ const plugin: FastifyPluginAsync = async instance => {
   instance.register(helmet)
   instance.register(sensible, { errorHandler: false })
   instance.register(prisma)
+
+  instance.setErrorHandler((err, _, reply) => {
+    console.error(err)
+    reply.send(err)
+  })
 }
 
 export default fp(plugin)
