@@ -9,11 +9,30 @@ export const fetchFruitsRoute: RouteOptions = {
   },
 }
 
-export const createFruitRoute: RouteOptions = {
-  method: 'GET',
-  url: '/create-kiwi',
-  handler(req: FastifyRequest) {
-    const fruit: Prisma.FruitCreateInput = { name: 'kiwi', color: 'green' }
-    return req.fruitDao.create({ data: fruit })
-  },
+/**
+ * Didn't find a way to keep the previous code:
+ * export const createFruitRoute: RouteOptions = {
+ *   method: 'GET',
+ *   url: '/create/:name/:color',
+ *   handler(req: FastifyRequest) { ... }
+ * }
+ * TS complaining about the type of 'handler'...
+ */
+
+/**
+ * Try json-schema-to-typescript
+ * (https://www.fastify.io/docs/latest/TypeScript/)
+ */
+
+type CustomRequest = FastifyRequest<{
+  Params: {
+    name: string
+    color: string
+  }
+}>
+export function createFruitHandler(request: CustomRequest) {
+  console.log('req.query', request.params)
+  const { name, color } = request.params
+  const fruit: Prisma.FruitCreateInput = { name, color }
+  return request.fruitDao.create({ data: fruit })
 }
