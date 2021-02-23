@@ -1,14 +1,14 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { addFruitUseCase } from '../use-cases/addFruit.useCase'
 
-type CustomRequest = FastifyRequest<{
+type CreateFruitRequest = FastifyRequest<{
   Params: {
     name: string
     color: string
   }
 }>
 export async function createFruitController(
-  request: CustomRequest,
+  request: CreateFruitRequest,
   reply: FastifyReply
 ): Promise<void> {
   // 1- Extract info from request
