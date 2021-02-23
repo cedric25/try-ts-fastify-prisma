@@ -1,6 +1,9 @@
 import { FastifyPluginCallback } from 'fastify'
 import { Prisma } from '@prisma/client'
-import { fetchFruitsRoute, createFruitHandler } from './methods'
+import {
+  readFruitsController,
+  createFruitController,
+} from './controllers/fruitsControllers'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -14,9 +17,10 @@ const plugin: FastifyPluginCallback = async instance => {
     req.fruitDao = instance.fruitDao
   })
 
-  instance.route(fetchFruitsRoute)
-  // instance.route(createFruitRoute)
-  instance.get('/create/:name/:color', createFruitHandler)
+  instance.get('/', readFruitsController)
+
+  // 'GET' here to ease tests directly from browser
+  instance.get('/create/:name/:color', createFruitController)
 }
 
 export default plugin
