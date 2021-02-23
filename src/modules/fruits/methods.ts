@@ -10,7 +10,7 @@ export const fetchFruitsRoute: RouteOptions = {
 }
 
 /**
- * Didn't find a way to keep the previous code:
+ * Didn't find a way to keep this code:
  * export const createFruitRoute: RouteOptions = {
  *   method: 'GET',
  *   url: '/create/:name/:color',
@@ -20,7 +20,7 @@ export const fetchFruitsRoute: RouteOptions = {
  */
 
 /**
- * Try json-schema-to-typescript
+ * Try json-schema-to-typescript?
  * (https://www.fastify.io/docs/latest/TypeScript/)
  */
 
