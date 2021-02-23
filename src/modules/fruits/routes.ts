@@ -3,6 +3,7 @@ import { Prisma } from '@prisma/client'
 import {
   readFruitsController,
   createFruitController,
+  deleteFruitController,
 } from './controllers/fruitsControllers'
 
 declare module 'fastify' {
@@ -21,6 +22,9 @@ const plugin: FastifyPluginCallback = async instance => {
 
   // 'GET' here to ease tests directly from browser
   instance.get('/create/:name/:color', createFruitController)
+
+  // 'GET' here to ease tests directly from browser
+  instance.get('/delete/:name', deleteFruitController)
 }
 
 export default plugin
