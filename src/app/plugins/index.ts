@@ -1,18 +1,25 @@
-import { FastifyPluginAsync } from 'fastify'
-import fp from 'fastify-plugin'
+import plugin from 'fastify-plugin'
 import helmet from 'fastify-helmet'
 import sensible from 'fastify-sensible'
+import { isBoom } from '@hapi/boom'
 import prisma from './prisma'
 
-const plugin: FastifyPluginAsync = async instance => {
+export default plugin(async instance => {
   instance.register(helmet)
   instance.register(sensible, { errorHandler: false })
   instance.register(prisma)
 
   instance.setErrorHandler((err, _, reply) => {
-    console.error(err)
+    // @ts-ignore
+    if (!err.logged) {
+      console.error(err)
+    }
+    if (isBoom(err)) {
+      reply.send({
+        ...err.output.payload,
+        data: err.data,
+      })
+    }
     reply.send(err)
   })
-}
-
-export default fp(plugin)
+})
