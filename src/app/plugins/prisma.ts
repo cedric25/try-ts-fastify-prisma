@@ -1,17 +1,14 @@
-import { FastifyPluginAsync } from 'fastify'
-import fp from 'fastify-plugin'
+import plugin from 'fastify-plugin'
 import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+const prismaClient = new PrismaClient()
 
 declare module 'fastify' {
   interface FastifyInstance {
-    fruitDao: PrismaClient['fruit']
+    db: PrismaClient
   }
 }
 
-export const plugin: FastifyPluginAsync = async instance => {
-  instance.decorate('fruitDao', prisma.fruit)
-}
-
-export default fp(plugin)
+export default plugin(async instance => {
+  instance.decorate('db', prismaClient)
+})
