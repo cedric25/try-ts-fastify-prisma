@@ -5,6 +5,9 @@
   "engines": {
     "node": "=16"
   },
+  "_moduleAliases": {
+    "@": "dist"
+  },
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon dist/server.js",
@@ -17,7 +20,8 @@
     "fastify": "3.27.1",
     "fastify-helmet": "7.0.1",
     "fastify-plugin": "3.0.1",
-    "fastify-sensible": "3.1.2"
+    "fastify-sensible": "3.1.2",
+    "module-alias": "2.2.2"
   },
   "devDependencies": {
     "@types/node": "16.11.22",
