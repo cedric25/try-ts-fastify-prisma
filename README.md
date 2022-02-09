@@ -39,5 +39,4 @@ Then import it at the top of your server entry file (`server.ts` for us): `impor
 
 ## To Do
 
-- Add ESLint
 - Add pino
