@@ -4,16 +4,16 @@
     "module": "commonjs",
     "target": "es2020",
 
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "alwaysStrict": true,
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*" ],
+    },
     "typeRoots": [
       "node_modules/@types",
       "src/@types"
     ],
 
+    "strict": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "outDir": "./dist",
@@ -31,6 +31,7 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
   },
   "include": ["src/**/*.ts"],
