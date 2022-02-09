@@ -36,3 +36,8 @@ Then import it at the top of your server entry file (`server.ts` for us): `impor
 
 👉 `npm i source-map-support -D`
 + Register it in your package.json dev script: `-r source-map-support/register`
+
+## To Do
+
+- Add ESLint
+- Add pino
