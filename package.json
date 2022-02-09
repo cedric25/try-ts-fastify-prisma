@@ -11,8 +11,9 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon -r source-map-support/register dist/server.js",
-    "lint": "prettier src --check",
-    "lint:fix": "prettier src --write"
+    "lint": "npm run prettier",
+    "prettier": "prettier src admin-scripts --check",
+    "prettier:fix": "prettier src admin-scripts --write"
   },
   "author": "Cedric Nicoloso <cedric.nicoloso@gmail.com>",
   "dependencies": {
