@@ -12,6 +12,22 @@ Some tools I wanted to make work together:
 -> Get all fruits:  
 `http://127.0.0.1:8080/api/fruits`
 
+You should get:
+```json
+{
+  "fruits": [
+    {
+      "name": "lemon",
+      "color": "yellow"
+    },
+    {
+      "name": "kiwi",
+      "color": "green"
+    }
+  ]
+}
+```
+
 -> Create one fruit:  
 `http://127.0.0.1:8080/api/fruits/create/ananas/yellow`
 
