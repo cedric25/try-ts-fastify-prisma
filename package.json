@@ -2,6 +2,7 @@
   "name": "try-ts-fastify-prisma",
   "version": "0.0.1",
   "private": true,
+  "author": "Cedric Nicoloso <cedric.nicoloso@gmail.com>",
   "engines": {
     "node": "=16"
   },
@@ -17,7 +18,6 @@
     "eslint": "eslint src --ext .ts",
     "eslint:fix": "eslint src"
   },
-  "author": "Cedric Nicoloso <cedric.nicoloso@gmail.com>",
   "dependencies": {
     "@hapi/boom": "9.1.4",
     "@prisma/client": "3.9.1",
