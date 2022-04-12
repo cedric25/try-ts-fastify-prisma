@@ -32,7 +32,7 @@ export async function createFruitUseCase({
       // https://github.com/prisma/prisma/issues/5040
       err.code === 'P2002'
     ) {
-      throw new Error('This fruit already exist.')
+      throw new Error('This fruit already exists.')
     }
     throw err
   }
