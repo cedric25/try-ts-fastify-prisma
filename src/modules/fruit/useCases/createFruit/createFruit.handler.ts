@@ -28,14 +28,14 @@ export const createFruitRoute = {
     const { name, color } = request.params
 
     // 2- Call use-case
-    const createdDbFruit = await createFruitUseCase({
+    const { createdFruitName } = await createFruitUseCase({
       name,
       color,
     })
 
     // 3- API answer
     reply.status(201).send({
-      message: `${createdDbFruit.name} well created!`,
+      message: `${createdFruitName} well created!`,
     })
   },
 }

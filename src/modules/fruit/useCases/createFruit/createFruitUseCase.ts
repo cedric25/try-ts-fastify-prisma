@@ -1,4 +1,4 @@
-import { Prisma, type Fruit } from '@prisma/client'
+import { Prisma } from '@prisma/client'
 import type { FruitDao } from '@/modules/fruit/dao/fruit.dao'
 import { fruitDi } from '@/modules/fruit/fruit.di'
 
@@ -8,7 +8,7 @@ export async function createFruitUseCase({
 }: {
   name: string
   color: string
-}): Promise<Fruit> {
+}): Promise<{ createdFruitName: string }> {
   // Entity for db
   const fruitForDb: Prisma.FruitCreateInput = {
     name,
@@ -20,11 +20,10 @@ export async function createFruitUseCase({
 
   try {
     // Save to db
-    return await fruitDao.createOneFruit({ data: fruitForDb })
-
-    // --- Q? Return answer from db or return entity?
-    // await fruitDao.create({ data: fruitForDb })
-    // return fruitEntity
+    const createdFruit = await fruitDao.createOneFruit({ data: fruitForDb })
+    return {
+      createdFruitName: createdFruit.name,
+    }
   } catch (err) {
     if (
       err instanceof Prisma.PrismaClientKnownRequestError &&
