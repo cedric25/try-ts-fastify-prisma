@@ -11,7 +11,9 @@
   },
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon -r source-map-support/register dist/server.js",
+    "dev": "nodemon -r source-map-support/register dist/server.js | pino-pretty -tc",
+    "build": "rimraf ./dist && tsc",
+    "start": "node dist/server.js",
     "lint": "npm run prettier",
     "prettier": "prettier src admin-scripts --check",
     "prettier:fix": "prettier src admin-scripts --write",
